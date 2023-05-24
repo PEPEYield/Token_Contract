@@ -1,5 +1,5 @@
 /**
- *Submitted for verification at Etherscan.io on 2023-05-23
+ *Submitted for verification at Etherscan.io on 2023-05-24
 */
 
 // SPDX-License-Identifier: Unlicensed
@@ -397,14 +397,14 @@ abstract contract ERC20Detailed is IERC20 {
     }
 }
 
-contract PEPEYield is ERC20Detailed, Ownable {
+contract PepeYield is ERC20Detailed, Ownable {
 
     using SafeMath for uint256;
     using SafeMathInt for int256;
 
     event LogRebase(uint256 indexed epoch, uint256 totalSupply);
 
-    string public _name = "PEPE Yield";
+    string public _name = "Pepe Yield";
     string public _symbol = "PEPY";
     uint8 public _decimals = 5;
 
@@ -423,11 +423,11 @@ contract PEPEYield is ERC20Detailed, Ownable {
     uint256 private constant INITIAL_FRAGMENTS_SUPPLY =
         325 * 10**3 * 10**DECIMALS;
 
-    uint256 public liquidityFee = 40;
-    uint256 public treasuryFee = 25;
-    uint256 public yieldInsuranceFundFee = 50;
-    uint256 public sellFee = 20;
-    uint256 public firePitFee = 25;
+    uint256 public liquidityFee = 10;
+    uint256 public treasuryFee = 10;
+    uint256 public yieldInsuranceFundFee = 10;
+    uint256 public sellFee = 10;
+    uint256 public firePitFee = 10;
     uint256 public totalFee =
         liquidityFee.add(treasuryFee).add(yieldInsuranceFundFee).add(
             firePitFee
@@ -469,7 +469,7 @@ contract PEPEYield is ERC20Detailed, Ownable {
     mapping(address => mapping(address => uint256)) private _allowedFragments;
     mapping(address => bool) public blacklist;
 
-    constructor() ERC20Detailed("PEPE Yield", "PEPY", uint8(DECIMALS)) Ownable() {
+    constructor() ERC20Detailed("Pepe Yield", "PEPY", uint8(DECIMALS)) Ownable() {
 
         router = IPancakeSwapRouter(0x10ED43C718714eb63d5aA57B78B54704E256024E); 
         pair = IPancakeSwapFactory(router.factory()).createPair(
